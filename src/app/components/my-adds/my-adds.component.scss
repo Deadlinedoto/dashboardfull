@@ -1,23 +1,36 @@
-.name-of-posts{
+.my-adds {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  list-style-type: none;
+}
+.create-post {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.create-post:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
+
+.my-adds-main-name{
+  width: 1296px;
+  height: 32px;
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 24px;
   line-height: 32px;
   color: #1E293B;
 }
-.posts{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  margin-top: 24px;
-  margin-bottom: 50px;
-  list-style-type: none;
-}
-
 .img1{
   height: 240px;
   width: 304px;
@@ -27,10 +40,18 @@
 .img2 {
   border-radius: 5px;
 }
-
-.name{
+.create-post {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #3B82F6;
+}
+.my-adds-block-name {
   width: 306px;
   height: 24px;
+  margin-top: 8px;
 
   font-family: Inter, sans-serif;
   font-style: normal;
@@ -41,12 +62,12 @@
   border-style: none;
   background: none;
 }
-.name:hover{
+.my-adds-block-name:hover{
   color: #cf3434;
   cursor: pointer;
 }
 
-.price{
+.my-adds-block-price{
   width: 306px;
   height: 24px;
 
@@ -58,7 +79,7 @@
   color: #1E293B;
 }
 
-.address{
+.my-adds-block-address{
   width: 306px;
   height: 20px;
 
@@ -70,7 +91,7 @@
   color: #64748B;
 }
 
-.date{
+.my-adds-block-date{
   width: 306px;
   height: 20px;
 

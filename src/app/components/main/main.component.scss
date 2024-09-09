@@ -1,8 +1,11 @@
-.container {
-  width: 1296px;
-  margin: 0 auto;
+.void {
+  margin-top: 24px;
+  margin-bottom: 32px;
+  height: 0.1px;
+  color: #CBD5E1;
+  background-color: #CBD5E1;
+  border-style: hidden;
 }
-
 .search-board {
   display: flex;
   flex-direction: row;
@@ -109,4 +112,19 @@
   font-size: 15px;
   line-height: 20px;
   color: #3B82F6;
+}
+
+.categories:hover{
+  color: #cf3434;
+  cursor: pointer;
+  border-color: #cf3434;
+}
+.all-categories:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
+.search:hover {
+  background-color: #1f63dc;
+  border-color: #1f63dc;
+  cursor: pointer;
 }
