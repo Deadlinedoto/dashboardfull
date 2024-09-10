@@ -42,6 +42,31 @@ header {
   color: #cf3434;
   cursor: pointer;
 }
+.header-block-sig-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4x;
+  border-style: none;
+  background: none;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  font-family: Inter, sans-serif;
+  color: white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.header-block-sig-in:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
 
 .header-btn-new-post {
   display: flex;

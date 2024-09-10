@@ -17,9 +17,26 @@
   outline: inherit;
 }
 .create-post:hover {
-  color: #cf3434;
   cursor: pointer;
 }
+
+.create-post:active .create-post-svg-text {
+  fill: #1E3A8A;
+}
+.create-post:active .create-post-svg-plus{
+  fill: #1E3A8A
+}
+.create-post-svg:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border: rgba(59, 130, 246, 0.32);
+  border-radius: 4px;
+}
+.create-post-svg:active {
+  background: rgba(39, 110, 226, 0.04);
+  border: rgba(39, 110, 226, 0.16);
+  border-radius: 4px;
+}
+
 
 .my-adds-main-name{
   width: 1296px;
