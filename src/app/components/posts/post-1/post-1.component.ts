@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './post-1.component.scss'
 })
 export class Post1Component {
-
+  
 }

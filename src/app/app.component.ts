@@ -20,14 +20,18 @@ import {Post13Component} from "./components/posts/post-13/post-13.component";
 import {Post14Component} from "./components/posts/post-14/post-14.component";
 import {Post15Component} from "./components/posts/post-15/post-15.component";
 import {Post16Component} from "./components/posts/post-16/post-16.component";
+import {CaruselComponent} from "./components/carusel/carusel.component";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {images$} from "../assets/all-images/carousel/images";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MainComponent, BodyComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component],
+  imports: [RouterOutlet, HeaderComponent, MainComponent, BodyComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component, CaruselComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'dashboardfull';
+  images = toSignal(images$)
 }

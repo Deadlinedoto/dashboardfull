@@ -1,0 +1,14 @@
+<div class="container">
+  <section class="carousel" (mouseleave)="setFirstImage()">
+    <app-main-image-carousel [image]="currentImage()"/>
+    <section class="mini-images-carousel">
+      @for (image of images(); track image.id){
+        <div class="mini-image" (mouseenter)="setCurrentImage(image)">
+          <div class="line"
+            [ngClass]="{'is-active': image.id === currentImage()?.id}">
+          </div>
+        </div>
+          }
+    </section>
+  </section>
+</div>
