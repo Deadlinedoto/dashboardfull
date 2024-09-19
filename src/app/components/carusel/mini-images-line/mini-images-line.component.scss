@@ -1,0 +1,21 @@
+.mini-images {
+  display: flex;
+  padding: 24px 0 0 0;
+  gap: 12px;
+}
+
+.mini-image-box {
+  border:  4px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &.is-active {
+    border-color: #3B82F6;
+  }
+}
+.mini-image {
+  height: 84px;
+  width: 120px;
+  background-size: cover;
+  background-position: center;
+}

@@ -16,28 +16,4 @@ import {MainImageCarouselComponent} from "./main-image-carousel/main-image-carou
 })
 export class CaruselComponent {
   images = input<Image[] | undefined>();
-
-  currentImage = signal<Image>({src: "", id: "", title: ""});
-
-  setFirstImage() {
-    const images = this.images();
-    if (images && images.length > 0) {
-      this.currentImage.set(images[0]);
-    }
-  };
-
-  constructor() {
-    effect(() => {
-      const images = this.images();
-      if (images && images.length > 0) {
-        this.currentImage.set(images[0]);
-      }
-    },
-      {allowSignalWrites: true},
-      );
-  }
-
-  setCurrentImage(image: Image) {
-    this.currentImage.set(image)
-  }
 }

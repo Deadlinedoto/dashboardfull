@@ -1,0 +1,14 @@
+<section class="mini-images">
+  @for (image of images(); track image.id) {
+    <div
+      class="mini-image-box"
+      (click)="setCurrentImage(image)"
+      [ngClass]="{'is-active': image.id === activeId() }"
+    >
+      <div
+        class="mini-image"
+        [ngStyle]="{'background-image': 'url(' + image.src + ')' }"
+      ></div>
+    </div>
+  }
+</section>
