@@ -2,8 +2,8 @@ import {Component, effect, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "./components/header/header.component";
 import {MainComponent} from "./components/main/main.component";
-import {BodyComponent} from "./components/body/body.component";
-import {MyAddsComponent} from "./components/my-adds/my-adds.component";
+import {AllAddsComponent} from "./pages/all-adds/all-adds-component";
+import {MyAddsComponent} from "./pages/my-adds/my-adds.component";
 import {Post1Component} from "./components/posts/post-1/post-1.component";
 import {Post2Component} from "./components/posts/post-2/post-2.component";
 import {Post3Component} from "./components/posts/post-3/post-3.component";
@@ -24,13 +24,12 @@ import {CaruselComponent} from "./components/carusel/carusel.component";
 import {toSignal} from "@angular/core/rxjs-interop";
 import {Image, images$} from "../assets/all-images/carousel/images";
 import {MainImageCarouselComponent} from "./components/carusel/main-image-carousel/main-image-carousel.component";
-import {MiniImageCarouselComponent} from "./components/carusel/mini-image-carousel/mini-image-carousel.component";
 import {MiniImagesLineComponent} from "./components/carusel/mini-images-line/mini-images-line.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MainComponent, BodyComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component, CaruselComponent, MainImageCarouselComponent, MiniImageCarouselComponent, MiniImagesLineComponent],
+  imports: [RouterOutlet, HeaderComponent, MainComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component, CaruselComponent, MainImageCarouselComponent, MiniImagesLineComponent, AllAddsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
