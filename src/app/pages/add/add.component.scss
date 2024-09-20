@@ -8,6 +8,8 @@
 }
 
 .name {
+  margin-top: 10px;
+  margin-bottom: 16px;
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -15,6 +17,7 @@
   line-height: 36px;
 }
 .price {
+  margin-top: 32px;
   width: 416px;
   height: 36px;
   font-family: Inter, sans-serif;
@@ -24,6 +27,7 @@
   line-height: 36px;
 }
 .give-number {
+  margin-top: 16px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -40,8 +44,26 @@
   font-size: 20px;
   line-height: 28px;
   color: #FFFFFF;
+  cursor: pointer;
+}
+.give-number:hover {
+    background-color: #1f63dc;
+    border-color: #1f63dc;
+    cursor: pointer;
+}
+.categories-add {
+  width: 100%;
+  height: 24px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #64748B;
 }
 .address {
+  margin-top: 40px;
+  margin-bottom: 8px;
   width: 416px;
   height: 32px;
   left: 1191px;
@@ -64,7 +86,13 @@
   color: #1E293B;
 }
 .open-on-map {
-  width: 140px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin-top: 45px;
+  width: 160px;
   height: 24px;
   font-family: Inter, sans-serif;
   font-style: normal;
@@ -75,9 +103,15 @@
   color: #3B82F6;
   border-style: none;
   background-color: transparent;
+  cursor: pointer;
+}
+.open-on-map:hover{
+  color: #cf3434;
+  cursor: pointer;
+  border-color: #cf3434;
 }
 .description-name {
-  margin-top: 30px;
+  margin-top: 32px;
   width: 416px;
   height: 32px;
   left: 1191px;
@@ -90,8 +124,8 @@
   color: #1E293B;
 }
 .description {
-  margin-top: 30px;
-  width: 416px;
+  margin-top: 8px;
+  width: 400px;
   height: 96px;
   left: 1191px;
   top: 564px;
