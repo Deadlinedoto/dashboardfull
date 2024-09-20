@@ -25,39 +25,16 @@ import {toSignal} from "@angular/core/rxjs-interop";
 import {Image, images$} from "../assets/all-images/carousel/images";
 import {MainImageCarouselComponent} from "./components/carusel/main-image-carousel/main-image-carousel.component";
 import {MiniImagesLineComponent} from "./components/carusel/mini-images-line/mini-images-line.component";
+import {AddComponent} from "./pages/add/add.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MainComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component, CaruselComponent, MainImageCarouselComponent, MiniImagesLineComponent, AllAddsComponent],
+  imports: [RouterOutlet, HeaderComponent, MainComponent, MyAddsComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component, Post16Component, CaruselComponent, MainImageCarouselComponent, MiniImagesLineComponent, AllAddsComponent, AddComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'dashboardfull';
-
-  images = toSignal(images$);
-
-  currentImage = signal<Image>({src: "", id: "", title: ""});
-
-  constructor() {
-    effect(() => {
-        const images = this.images();
-        if (images && images.length > 0) {
-          this.currentImage.set(images[0]);
-        }
-      },
-      {allowSignalWrites: true},
-    );
-  }
-  setFirstImage() {
-    const images = this.images();
-    if (images && images.length > 0) {
-      this.currentImage.set(images[0]);
-    }
-  };
-
-  setCurrentImage(image: Image) {
-    this.currentImage.set(image);
-  }
 }
+
