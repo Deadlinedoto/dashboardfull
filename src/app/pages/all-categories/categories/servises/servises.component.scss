@@ -1,0 +1,39 @@
+.transport-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+li:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
+h1 {
+  margin-bottom: 24px;
+}
+h1:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
+.auto {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+.auto:hover {
+  color: #cf3434;
+}
+.auto2 {
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+.auto2:hover {
+  color: #cf3434;
+}
+ul {
+  margin-bottom: 24px;
+}

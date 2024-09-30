@@ -1,12 +1,12 @@
 import {Component, computed, input} from '@angular/core';
 import {Image, images$} from "../../../../assets/all-images/carousel/images";
-import {NgStyle} from "@angular/common";
+import {CommonModule, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-main-image-carousel',
   standalone: true,
   imports: [
-    NgStyle
+    NgStyle, CommonModule
   ],
   templateUrl: './main-image-carousel.component.html',
   styleUrl: './main-image-carousel.component.scss'
@@ -20,5 +20,4 @@ export class MainImageCarouselComponent {
       backgroundImage: `url(${this.image()?.src})`,
     }
   })
-
 }

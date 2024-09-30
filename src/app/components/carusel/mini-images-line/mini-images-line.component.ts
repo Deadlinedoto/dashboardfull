@@ -1,5 +1,5 @@
 import {Component, input, output} from '@angular/core';
-import {NgClass, NgStyle} from "@angular/common";
+import {CommonModule, NgClass, NgStyle} from "@angular/common";
 import {Image} from "../../../../assets/all-images/carousel/images";
 
 @Component({
@@ -7,7 +7,8 @@ import {Image} from "../../../../assets/all-images/carousel/images";
   standalone: true,
   imports: [
     NgClass,
-    NgStyle
+    NgStyle,
+    CommonModule
   ],
   templateUrl: './mini-images-line.component.html',
   styleUrl: './mini-images-line.component.scss'

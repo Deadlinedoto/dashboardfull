@@ -4,6 +4,8 @@ import {MiniImagesLineComponent} from "../../components/carusel/mini-images-line
 import {CaruselComponent} from "../../components/carusel/carusel.component";
 import {toSignal} from "@angular/core/rxjs-interop";
 import {Image, images$} from "../../../assets/all-images/carousel/images";
+import {CommonModule} from "@angular/common";
+import {ShowNumberDialogComponent} from "./show-number-dialog/show-number-dialog.component";
 
 @Component({
   selector: 'app-add',
@@ -11,7 +13,9 @@ import {Image, images$} from "../../../assets/all-images/carousel/images";
   imports: [
     MainImageCarouselComponent,
     MiniImagesLineComponent,
-    CaruselComponent
+    CaruselComponent,
+    CommonModule,
+    ShowNumberDialogComponent
   ],
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss'
@@ -20,6 +24,8 @@ export class AddComponent {
   images = toSignal(images$);
 
   currentImage = signal<Image>({src: "", id: "", title: ""});
+
+  isVisiblePopup = false;
 
   constructor() {
     effect(() => {
@@ -40,6 +46,9 @@ export class AddComponent {
 
   setCurrentImage(image: Image) {
     this.currentImage.set(image);
+  }
+  showVisiblePopup() {
+    this.isVisiblePopup = !this.isVisiblePopup
   }
 }
 
