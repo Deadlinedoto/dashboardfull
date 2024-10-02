@@ -1,6 +1,15 @@
-<img class="img" src="{{product.img}}" alt="{{product.name}}">
+<img
+  (click)="getSelectProduct(product.id)"
+  *ngIf="product.imagesIds.length"
+  class="img" src="http://dzitskiy.ru:5000/Images/{{product.imagesIds[0]}}" alt="{{product.name}}">
+<img
+  (click)="getSelectProduct(product.id)"
+  class="img"
+  *ngIf="!product.imagesIds.length"
+  src="assets/all-images/main-imgs/main-img4.png">
+
 <p class="name">{{product.name}}</p>
-<p class="price">{{product.price}}<span>₽</span></p>
-<p class="address">{{product.address}}</p>
-<p class="date">{{product.date | date: "dd.MM.YYYY, H:mm"}}</p>
+<p class="price">{{product.cost}}<span>₽</span></p>
+<p class="address">{{product.location}}</p>
+<p class="date">{{product.createdAt| date: "dd.MM.YYYY, H:mm"}}</p>
 

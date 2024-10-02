@@ -6,6 +6,7 @@
   <div
     *ngFor="let product of products">
     <app-post
+      (getSelectAdd)="getSelectAdd($event)"
       routerLink = "selected-add"
       [product]="product"
     ></app-post>

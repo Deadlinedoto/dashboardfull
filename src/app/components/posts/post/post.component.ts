@@ -1,7 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, output} from '@angular/core';
 import {ProductCard} from "../../../interfaces/product-card.interface";
-import {CurrencyPipe, DatePipe} from "@angular/common";
+import {CommonModule, CurrencyPipe, DatePipe} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {AddsRequest} from "../../../interfaces/adds-request.interface";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-post',
@@ -9,13 +11,19 @@ import {RouterLink} from "@angular/router";
   imports: [
     DatePipe,
     RouterLink,
-    CurrencyPipe
+    CurrencyPipe,
+    CommonModule
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })
-export class PostComponent {
-  @Input() product!: ProductCard
+export class PostComponent{
+  @Input() product!: AddsRequest
+  @Output() getSelectAdd = new EventEmitter()
   constructor() {
   }
+  getSelectProduct(id: string) {
+    this.getSelectAdd.emit(id);
+  }
+
 }
