@@ -46,6 +46,13 @@
   color: #FFFFFF;
   cursor: pointer;
 }
+.select-address {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1E293B;
+}
 .give-number:hover {
     background-color: #1f63dc;
     border-color: #1f63dc;
@@ -135,4 +142,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #1E293B;
+}
+span {
+  margin-left: 7px;
 }

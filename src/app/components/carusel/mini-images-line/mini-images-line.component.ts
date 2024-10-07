@@ -1,6 +1,7 @@
-import {Component, input, output} from '@angular/core';
+import {Component, Input, input, OnInit, output} from '@angular/core';
 import {CommonModule, NgClass, NgStyle} from "@angular/common";
-import {Image} from "../../../../assets/all-images/carousel/images";
+import {Image, images$} from "../../../../assets/all-images/carousel/images";
+import {AddInterface} from "../../../interfaces/add.interface";
 
 @Component({
   selector: 'app-mini-images-line',
@@ -13,13 +14,17 @@ import {Image} from "../../../../assets/all-images/carousel/images";
   templateUrl: './mini-images-line.component.html',
   styleUrl: './mini-images-line.component.scss'
 })
-export class MiniImagesLineComponent {
-  images = input<Image[]>();
-  changeCurrent = output<Image>();
+export class MiniImagesLineComponent implements OnInit {
+  ngOnInit() {
+    console.log(this.miniImg)
+  }
 
-  activeId = input.required<string>();
+  @Input() miniImg!: AddInterface
+  changeCurrent = output<AddInterface>();
 
-  setCurrentImage(image: Image) {
+  setCurrentImage(image: AddInterface) {
     this.changeCurrent.emit(image);
   }
+
+  protected readonly images$ = images$;
 }

@@ -1,0 +1,36 @@
+<div class="registration">
+  <p-dialog header="Регистрация"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '26rem', height: '22rem'}">
+    <form
+      [formGroup]="form"
+    >
+     <div class="forms-registration">
+       <input
+        type="text"
+        placeholder="Имя"
+        formControlName="name"
+        appValidation
+       >
+       <input
+         type="text"
+         placeholder="Логин"
+         formControlName="login"
+         appValidation
+       >
+       <input
+         type="text"
+         placeholder="Пароль"
+         formControlName="password"
+         appValidation
+       >
+     </div>
+      <button
+        type="submit"
+      >
+        Зарегистрироваться
+      </button>
+    </form>
+  </p-dialog>
+</div>

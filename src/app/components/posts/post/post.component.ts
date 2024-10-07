@@ -1,9 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output, output} from '@angular/core';
-import {ProductCard} from "../../../interfaces/product-card.interface";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule, CurrencyPipe, DatePipe} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {AddsRequest} from "../../../interfaces/adds-request.interface";
-import {HttpClient} from "@angular/common/http";
+import {AddInterface} from "../../../interfaces/add.interface";
 
 @Component({
   selector: 'app-post',

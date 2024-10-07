@@ -1,6 +1,6 @@
 <div class="add-page">
   <div class="1">
-    <h2 class="price">80 000 ₽</h2>
+    <h2 class="price">{{ selectedProducts.cost }}<span>₽</span></h2>
     <button class="give-number"
     (click)="showVisiblePopup()"
     >
@@ -12,6 +12,8 @@
     </button>
     <div class="address-add">
       <h3 class="address">Адрес</h3>
+      <p class="select-address">
+        {{selectedProducts.location}}</p>
     </div>
     <button class="open-on-map">Открыть на карте
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,24 +21,24 @@
       </svg>
     </button>
     <h4 class="description-name">Описание</h4>
-    <p class="description">Продается MacBook Pro 13 8/256 <br>
-      Сам ноутбук в отличном состоянии, количество циклов перезарядки 123,
-      в комплекте: коробка,ноутбук,блок,кабель и чек!</p>
+    <p class="description">{{selectedProducts.description}}</p>
   </div>
   <div class="image-and-name">
     <p class="categories-add">Севастополь • Электроника • Ноутбуки • Apple</p>
-    <h1 class="name">Macbook pro 13 2020 m1 8/256</h1>
+    <h1 class="name">{{selectedProducts.name}}</h1>
     <app-carusel>
-      <app-main-image-carousel class="main-image" [image]="currentImage()"/>
+      <app-main-image-carousel
+        [mainImg] = "selectedProducts"
+        class="main-image"/>
       <app-mini-images-line
+        [miniImg]="selectedProducts"
         class="mini-images"
-        [images]="images()"
-        [activeId]="currentImage().id"
-        (changeCurrent)="setCurrentImage($event)"
       />
     </app-carusel>
   </div>
 </div>
 <add-show-number-dialog
+  [phone]="selectedProducts"
   [visible] = "isVisiblePopup"
-></add-show-number-dialog>
+>
+</add-show-number-dialog>

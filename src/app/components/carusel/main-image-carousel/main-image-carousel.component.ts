@@ -1,6 +1,6 @@
-import {Component, computed, input} from '@angular/core';
-import {Image, images$} from "../../../../assets/all-images/carousel/images";
+import {Component, computed, Input, input, OnInit} from '@angular/core';
 import {CommonModule, NgStyle} from "@angular/common";
+import {AddInterface} from "../../../interfaces/add.interface";
 
 @Component({
   selector: 'app-main-image-carousel',
@@ -13,11 +13,5 @@ import {CommonModule, NgStyle} from "@angular/common";
 })
 export class MainImageCarouselComponent {
 
-  image = input.required<Image>()
-
-  backgroundUrl = computed(() => {
-    return {
-      backgroundImage: `url(${this.image()?.src})`,
-    }
-  })
+  @Input() mainImg!: AddInterface
 }

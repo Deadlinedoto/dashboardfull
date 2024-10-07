@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import {AddInterface} from "../../../interfaces/add.interface";
 
 @Component({
   selector: 'add-show-number-dialog',
@@ -11,4 +12,5 @@ import { ButtonModule } from 'primeng/button';
 })
 export class ShowNumberDialogComponent{
   @Input() visible: boolean = false;
+  @Input() phone!: AddInterface;
 }

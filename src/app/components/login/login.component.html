@@ -1,0 +1,26 @@
+
+
+
+<form [formGroup]="form">
+  <div class="row-form-control">
+    <div class="col-4">Логин</div>
+    <div class="col-6">
+      <input
+        type="text"
+        placeholder="Имя"
+        formControlName="login"
+        appValidation
+      />
+    </div>
+  </div>
+  <div class="row-form-control">
+    <div class="col-4">Пароль</div>
+    <div class="col-6">
+      <p-inputMask
+        mask="+9(999)-999-99-99"
+        formControlName="password"
+        placeholder="+7(777)-777-77-77"
+      />
+    </div>
+  </div>
+</form>

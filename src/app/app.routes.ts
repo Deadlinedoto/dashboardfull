@@ -3,6 +3,9 @@ import {AddComponent} from "./pages/add/add.component";
 import {AllAddsComponent} from "./pages/all-adds/all-adds-component";
 import {CreateAddComponent} from "./pages/create-add/create-add.component";
 import {SettingProfileComponent} from "./pages/setting-profile/setting-profile.component";
+import {RegistrationComponent} from "./components/registration/registration.component";
+import {LoginComponent} from "./components/login/login.component";
+import {MyAddsComponent} from "./pages/my-adds/my-adds.component";
 
 export const routes: Routes = [
   {
@@ -10,7 +13,7 @@ export const routes: Routes = [
     component: AllAddsComponent
   },
   {
-    path: 'selected-add',
+    path: 'selected-add/:id',
     component: AddComponent
   },
   {
@@ -18,12 +21,20 @@ export const routes: Routes = [
     component: CreateAddComponent
   },
   {
-    path: "setting-profile",
-    component: SettingProfileComponent
+    path: "login",
+    component: LoginComponent,
+  },
+  {
+    path: "my-add",
+    component: MyAddsComponent
   },
   {
     path: "all-categories",
     loadChildren: () => import("./pages/all-categories/all-categories-routing").then((m) => m.allCategoriesRouting)
+  },
+  {
+    path: "registration",
+    component: RegistrationComponent
   },
 
 
