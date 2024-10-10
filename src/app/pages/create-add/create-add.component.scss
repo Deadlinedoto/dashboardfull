@@ -5,3 +5,135 @@
   font-size: 24px;
   color: #1E293B;
 }
+.all-forms-create {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+span{
+  margin-left: 5px;
+}
+div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+input{
+  width: 400px;
+  height: 30px;
+}
+button{
+  width: 200px;
+  height: 50px;
+}
+.new-ad-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+p-dropdown  {
+  width: 416px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+}
+:host::ng-deep.p-optionLabel {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+:host::ng-deep.p-placeholder {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 14px;
+  margin-left: 12px;
+}
+.new-ad-form1 {
+  width: 856px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  text-indent: 12px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.new-ad-form1::placeholder {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.new-ad-description{
+  padding-top: 8px;
+  padding-left: 12px;
+  width: 856px;
+  height: 168px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+}
+.new-ad-description::placeholder {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.new-ad-cost {
+  width: 305px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  text-indent: 12px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.new-ad-cost::placeholder {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+div {
+  gap: 8px;
+}
+button {
+  width: 262px;
+  height: 52px;
+  background: #3B82F6;
+  border-radius: 4px;
+  border-style: none;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1f63dc;
+  border-color: #1f63dc;
+}
+button:active {
+  background-color: #1E3A8A;
+;
+}

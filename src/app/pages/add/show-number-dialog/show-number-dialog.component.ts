@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {AddInterface} from "../../../interfaces/add.interface";
@@ -13,4 +13,11 @@ import {AddInterface} from "../../../interfaces/add.interface";
 export class ShowNumberDialogComponent{
   @Input() visible: boolean = false;
   @Input() phone!: AddInterface;
+  @Output() closeShowPopup = new EventEmitter();
+
+
+  onHide(): void {
+    this.visible = false
+    this.closeShowPopup.emit(this.visible);
+  }
 }

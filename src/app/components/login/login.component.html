@@ -1,26 +1,43 @@
-
-
-
-<form [formGroup]="form">
-  <div class="row-form-control">
-    <div class="col-4">Логин</div>
-    <div class="col-6">
-      <input
-        type="text"
-        placeholder="Имя"
-        formControlName="login"
-        appValidation
-      />
-    </div>
-  </div>
-  <div class="row-form-control">
-    <div class="col-4">Пароль</div>
-    <div class="col-6">
-      <p-inputMask
-        mask="+9(999)-999-99-99"
-        formControlName="password"
-        placeholder="+7(777)-777-77-77"
-      />
-    </div>
-  </div>
-</form>
+<div class="login">
+  <p-dialog header="Авторизация"
+            (onHide)="onHide()"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '26rem', height: '20rem'}">
+    <form
+      [formGroup]="form" (ngSubmit)="login()"
+    >
+      <div class="forms-registration">
+        <input
+          type="text"
+          placeholder="Логин"
+          formControlName="login"
+          appValidation
+        >
+        <input
+          type="text"
+          placeholder="Пароль"
+          formControlName="password"
+          appValidation
+        >
+        <div class="card flex justify-content-center gap-8">
+          <div class="card flex justify-content-center gap-2">
+<!--            <p-checkbox-->
+<!--              [(ngModel)]="checked"-->
+<!--              [binary]="true"-->
+<!--              inputId="binary">-->
+<!--            </p-checkbox>-->
+            <p>Запомнить меня</p>
+          </div>
+          <p class="forget-password-help">
+            Забыли пароль?
+          </p>
+        </div>
+      </div>
+      <button class="enter-login"
+      >
+        Войти
+      </button>
+    </form>
+  </p-dialog>
+</div>

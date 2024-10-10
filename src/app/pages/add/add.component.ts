@@ -38,7 +38,8 @@ export class AddComponent implements OnInit{
   images = toSignal(images$);
   currentImage = signal<Image>({src: "", id: "", title: ""});
 
-  isVisiblePopup = false;
+  public isVisiblePopup = false;
+  public closeVisiblePopup = true
   public selectedProducts!: AddInterface
   public idSelectAdd!: string
   public mainImg!: [{}]
@@ -66,6 +67,9 @@ export class AddComponent implements OnInit{
   }
   showVisiblePopup() {
     this.isVisiblePopup = !this.isVisiblePopup
+  }
+  closeShowPopup(value: boolean) {
+    this.isVisiblePopup = value
   }
   getSelectAdd(id: string) {
     this._api.getApiAdd(id).subscribe((resp) => {

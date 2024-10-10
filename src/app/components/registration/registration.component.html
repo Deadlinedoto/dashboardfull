@@ -1,36 +1,75 @@
 <div class="registration">
   <p-dialog header="Регистрация"
+            (onHide)="onHide()"
             [modal]="true"
             [(visible)]="visible"
             [style]="{ width: '26rem', height: '22rem'}">
     <form
-      [formGroup]="form"
+      [formGroup]="form" (ngSubmit)="registration()"
     >
      <div class="forms-registration">
+      <div>
        <input
         type="text"
         placeholder="Имя"
         formControlName="name"
         appValidation
+       />
+       <p
+         *ngIf="registerNameError.errors?.minlength && registerNameError.errors"
        >
-       <input
-         type="text"
-         placeholder="Логин"
-         formControlName="login"
-         appValidation
+         Минимальное количество символов - 4. Сейчас {{registerNameError.value.length}}
+       </p>
+        <p
+          *ngIf="registerNameError.errors?.maxlength"
+        >
+          Максимальное количество символов - 64. Сейчас {{registerNameError.value.length}}
+        </p>
+      </div>
+       <div>
+         <input
+           type="text"
+           placeholder="Логин"
+           formControlName="login"
+           appValidation
+         >
+         <p
+           *ngIf="registerLoginError.errors?.minlength"
+         >
+           Минимальное количество символов - 4 Сейчас. {{registerLoginError.value.length}}
+         </p>
+         <p
+           *ngIf="registerLoginError.errors?.maxlength"
+         >
+           Максимальное количество символов - 64. Сейчас {{registerLoginError.value.length}}
+         </p>
+       </div>
+       <div>
+         <input
+           type="text"
+           placeholder="Пароль"
+           formControlName="password"
+           appValidation
+         >
+       <p
+         *ngIf="registerPasswordError.errors?.minlength"
        >
-       <input
-         type="text"
-         placeholder="Пароль"
-         formControlName="password"
-         appValidation
-       >
+         Минимальное количество символов - 8. Сейчас {{registerPasswordError.value.length}}
+       </p>
+         <p
+           *ngIf="registerPasswordError.errors?.maxlength"
+         >
+           Максимальное количество символов - 50. Сейчас {{registerPasswordError.value.length}}
+         </p>
+       </div>
      </div>
       <button
         type="submit"
+
       >
         Зарегистрироваться
       </button>
+
     </form>
   </p-dialog>
 </div>

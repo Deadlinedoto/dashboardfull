@@ -1,5 +1,14 @@
-<section class="carousel">
-    <ng-content select=".main-image"></ng-content>
-    <ng-content select=".mini-images"></ng-content>
-</section>
-
+<p-galleria
+  [value]="images"
+  [numVisible]="5">
+  <ng-template pTemplate="item" let-item>
+    <img class="img123" [src]="'http://dzitskiy.ru:5000/Images/' + item" />
+  </ng-template>
+  <ng-template class="mini-images2" pTemplate="thumbnail" let-item>
+    <div class="grid grid-nogutter justify-content-center">
+      <img
+        class="img1111"
+        [src]="'http://dzitskiy.ru:5000/Images/' + item"/>
+    </div>
+  </ng-template>
+</p-galleria>

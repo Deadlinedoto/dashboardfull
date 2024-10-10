@@ -22,9 +22,8 @@ export class ApiService {
   getApiAdd(id: string): Observable<AddInterface> {
     return this.http.get<AddInterface>("http://dzitskiy.ru:5000/Advert/" + id)
   }
-
-  // getRegistration(): Observable<Registration[]> {
-  //   return this.http.post<Registration[]>("http://dzitskiy.ru:5000/Auth/Register")
-  // }
+  getRegistration(): Observable<Registration[]> {
+    return this.http.post<Registration[]>("http://dzitskiy.ru:5000/Auth/Register", {})
+  }
 }
 
