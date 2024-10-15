@@ -3,7 +3,7 @@
     <div class="header-block-buttons">
       <button
         class="header-btn-login"
-        *ngIf="!isAuthrotization"
+        *ngIf="!isAuthorization"
         (click)="showVisiblePopupLogin()"
       >
         <svg class="persona-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
         Войти
       </button>
       <button
-        *ngIf="isAuthrotization"
+        *ngIf="isAuthorization"
         class="header-btn-login"
       >
         <svg class="persona-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

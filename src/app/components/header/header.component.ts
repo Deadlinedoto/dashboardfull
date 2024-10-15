@@ -4,13 +4,13 @@ import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {RegistrationComponent} from "../registration/registration.component";
-import {LoginComponent} from "../login/login.component";
 import {RegistrationError} from "../../interfaces/registration-error.interface";
 import {ShowNumberDialogComponent} from "../../pages/add/show-number-dialog/show-number-dialog.component";
 import {NgIf} from "@angular/common";
 import {authInterceptor} from "../../interceptors/auth.interceptor";
 import {tap} from "rxjs";
 import {LoginService} from "../../services/login.service";
+import {LoginComponent} from "./login/login.component";
 
 
 @Component({
@@ -28,13 +28,12 @@ import {LoginService} from "../../services/login.service";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   providers: [LoginComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent{
-  public isAuthrotization = false;
+  public isAuthorization = false;
 
   login() {
-      this.isAuthrotization = true;
+    this.isAuthorization = !this.isAuthorization;
   }
 
   public errorName!: RegistrationError;

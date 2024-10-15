@@ -4,7 +4,7 @@ import {AllAddsComponent} from "./pages/all-adds/all-adds-component";
 import {CreateAddComponent} from "./pages/create-add/create-add.component";
 import {SettingProfileComponent} from "./pages/setting-profile/setting-profile.component";
 import {RegistrationComponent} from "./components/registration/registration.component";
-import {LoginComponent} from "./components/login/login.component";
+import {LoginComponent} from "./components/header/login/login.component";
 import {MyAddsComponent} from "./pages/my-adds/my-adds.component";
 
 export const routes: Routes = [

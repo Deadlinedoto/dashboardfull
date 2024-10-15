@@ -8,10 +8,10 @@ import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {HttpClient} from "@angular/common/http";
 import {RouterLink} from "@angular/router";
-import {tap} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {CheckboxModule} from "primeng/checkbox";
-import {LoginService} from "../../services/login.service";
-import {HeaderComponent} from "../header/header.component";
+import {LoginService} from "../../../services/login.service";
+
 
 @Component({
   selector: 'app-login',
@@ -32,29 +32,41 @@ import {HeaderComponent} from "../header/header.component";
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private _cdr: ChangeDetectorRef,
-              private _loginService: LoginService,
-              // private _headerComponent: HeaderComponent
-  ) {
+  constructor(private _http: HttpClient) {
   }
+  public login(body): Observable<string> {
+    return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
+  }
+
   @Input() visible = false;
-  // @Input() loginIn = "loginIn"
-  @Output() loginIn = new EventEmitter();
   @Output() closeShowPopupLogin = new EventEmitter();
+
+  @Input() isAuthorization = new EventEmitter();
+  @Output() loginIn = false
 
   public isAuth = false;
   private _fb = inject(FormBuilder);
-  private _http = inject(HttpClient);
+  // private _http = inject(HttpClient);
   checked: boolean = false;
 
-  login() {
-     this._loginService.login(this.form.value).pipe(
-       tap((token) => {
-       if(token){
-        localStorage.setItem("Token", token)
-         this.login()
-     }
-     })).subscribe()
+  logIn() {
+    this.login(this.form.value).pipe(
+      tap((token) => {
+        if(token)
+          localStorage.setItem("Token", token)
+        this.login(token);
+        this.isAuthorization.emit(this.loginIn);
+      })
+    ).subscribe();
+
+
+    // this._loginService.login(this.form.value).pipe(
+    //   tap((token) => {
+    //     if(token){
+    //       localStorage.setItem("Token", token)
+    //       this.login()
+    //     }
+    //   })).subscribe()
   }
 
   public form = this._fb.group({

@@ -6,9 +6,9 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class LoginService {
-  constructor(private _http: HttpClient) {
-  }
-  public login(body): Observable<string> {
-    return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
-  }
+  // constructor(private _http: HttpClient) {
+  // }
+  // public login(body): Observable<string> {
+  //   return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
+  // }
 }
