@@ -16,7 +16,7 @@
         appValidation
        />
        <p
-         *ngIf="registerNameError.errors?.minlength && registerNameError.errors"
+         *ngIf="registerNameError.errors?.minlength && registerNameError.errors && registerNameError"
        >
          Минимальное количество символов - 4. Сейчас {{registerNameError.value.length}}
        </p>
@@ -65,7 +65,7 @@
      </div>
       <button
         type="submit"
-
+        [disabled]="!form.valid"
       >
         Зарегистрироваться
       </button>

@@ -129,6 +129,18 @@ button {
   color: #FFFFFF;
   cursor: pointer;
 }
+.create-add-image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 856px;
+  height: 64px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+}
+
 button:hover {
   background-color: #1f63dc;
   border-color: #1f63dc;

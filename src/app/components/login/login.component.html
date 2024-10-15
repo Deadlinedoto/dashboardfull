@@ -1,4 +1,4 @@
-<div class="login">
+<div>
   <p-dialog header="Авторизация"
             (onHide)="onHide()"
             [modal]="true"
@@ -34,7 +34,10 @@
           </p>
         </div>
       </div>
-      <button class="enter-login"
+      <button
+        class="enter-login"
+        [disabled]="!form.valid"
+        (click)="onHide()"
       >
         Войти
       </button>

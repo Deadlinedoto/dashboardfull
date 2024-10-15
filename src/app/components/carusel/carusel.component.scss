@@ -1,9 +1,19 @@
+:host::ng-deep.p-galleria-thumbnail-container {
+  background: white;
+}
 .img123 {
     width: 856px;
     height: 512px;
 }
 .img1111 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-top: 24px;
   height: 100px;
   width: 120px;
+
+}
+.mini-images2 {
+  background: none;
 }
