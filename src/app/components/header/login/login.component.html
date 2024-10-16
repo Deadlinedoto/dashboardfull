@@ -1,46 +1,46 @@
 <div>
-  <p-dialog header="Авторизация"
-            (onHide)="onHide()"
-            [modal]="true"
-            [(visible)]="visible"
-            [style]="{ width: '26rem', height: '20rem'}">
-    <form
-      [formGroup]="form" (ngSubmit)="logIn()"
-    >
-      <div class="forms-registration">
-        <input
-          type="text"
-          placeholder="Логин"
-          formControlName="login"
-          appValidation
-        >
-        <input
-          type="text"
-          placeholder="Пароль"
-          formControlName="password"
-          appValidation
-        >
-        <div class="card flex justify-content-center gap-8">
-          <div class="card flex justify-content-center gap-2">
-            <!--            <p-checkbox-->
-            <!--              [(ngModel)]="checked"-->
-            <!--              [binary]="true"-->
-            <!--              inputId="binary">-->
-            <!--            </p-checkbox>-->
-            <p>Запомнить меня</p>
-          </div>
-          <p class="forget-password-help">
-            Забыли пароль?
-          </p>
-        </div>
-      </div>
-      <button
-        class="enter-login"
-        [disabled]="!form.valid"
-        (click)="onHide()"
-      >
-        Войти
-      </button>
-    </form>
-  </p-dialog>
+<!--  <p-dialog header="Авторизация"-->
+<!--            (onHide)="onHide()"-->
+<!--            [modal]="true"-->
+<!--            [(visible)]="visible"-->
+<!--            [style]="{ width: '26rem', height: '20rem'}">-->
+<!--    <form-->
+<!--      [formGroup]="form" (ngSubmit)="logIn()"-->
+<!--    >-->
+<!--      <div class="forms-registration">-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          placeholder="Логин"-->
+<!--          formControlName="login"-->
+<!--          appValidation-->
+<!--        >-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          placeholder="Пароль"-->
+<!--          formControlName="password"-->
+<!--          appValidation-->
+<!--        >-->
+<!--        <div class="card flex justify-content-center gap-8">-->
+<!--          <div class="card flex justify-content-center gap-2">-->
+<!--            &lt;!&ndash;            <p-checkbox&ndash;&gt;-->
+<!--            &lt;!&ndash;              [(ngModel)]="checked"&ndash;&gt;-->
+<!--            &lt;!&ndash;              [binary]="true"&ndash;&gt;-->
+<!--            &lt;!&ndash;              inputId="binary">&ndash;&gt;-->
+<!--            &lt;!&ndash;            </p-checkbox>&ndash;&gt;-->
+<!--            <p>Запомнить меня</p>-->
+<!--          </div>-->
+<!--          <p class="forget-password-help">-->
+<!--            Забыли пароль?-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <button-->
+<!--        class="enter-login"-->
+<!--        [disabled]="!form.valid"-->
+<!--        (click)="onHide()"-->
+<!--      >-->
+<!--        Войти-->
+<!--      </button>-->
+<!--    </form>-->
+<!--  </p-dialog>-->
 </div>

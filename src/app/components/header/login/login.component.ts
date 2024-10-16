@@ -32,11 +32,11 @@ import {LoginService} from "../../../services/login.service";
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private _http: HttpClient) {
-  }
-  public login(body): Observable<string> {
-    return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
-  }
+  // constructor(private _http: HttpClient) {
+  // }
+  // public login(body): Observable<string> {
+  //   return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
+  // }
 
   @Input() visible = false;
   @Output() closeShowPopupLogin = new EventEmitter();
@@ -46,18 +46,18 @@ export class LoginComponent {
 
   private _fb = inject(FormBuilder);
 
-  logIn() {
-    this.login(this.form.value).pipe(
-      tap((token) => {
-        if(token)
-          localStorage.setItem("Token", token)
-        this.login(token);
-        this.isAuthorization = true;
-        return this.isAuthorization
-        // return this.login(token);
-      })
-    ).subscribe();
-    }
+  // logIn() {
+  //   this.login(this.form.value).pipe(
+  //     tap((token) => {
+  //       if(token)
+  //         localStorage.setItem("Token", token)
+  //       this.login(token);
+  //       this.isAuthorization = true;
+  //       return this.isAuthorization
+  //       // return this.login(token);
+  //     })
+  //   ).subscribe();
+  //   }
 
 
 
@@ -69,13 +69,13 @@ export class LoginComponent {
     //     }
     //   })).subscribe()
 
-  public form = this._fb.group({
-    login: ["", Validators.required],
-    password: ["", Validators.required],
-  });
-
-  onHide(): void {
-    this.visible = false
-    this.closeShowPopupLogin.emit(this.visible);
-  }
+//   public form = this._fb.group({
+//     login: ["", Validators.required],
+//     password: ["", Validators.required],
+//   });
+//
+//   onHide(): void {
+//     this.visible = false
+//     this.closeShowPopupLogin.emit(this.visible);
+//   }
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit,} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, ViewChild,} from '@angular/core';
 import {MenuModule} from 'primeng/menu';
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
@@ -7,10 +7,12 @@ import {RegistrationComponent} from "../registration/registration.component";
 import {RegistrationError} from "../../interfaces/registration-error.interface";
 import {ShowNumberDialogComponent} from "../../pages/add/show-number-dialog/show-number-dialog.component";
 import {NgIf} from "@angular/common";
-import {authInterceptor} from "../../interceptors/auth.interceptor";
-import {tap} from "rxjs";
-import {LoginService} from "../../services/login.service";
+import {Observable, tap} from "rxjs";
 import {LoginComponent} from "./login/login.component";
+import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {OverlayPanel, OverlayPanelModule} from "primeng/overlaypanel";
+
 
 
 @Component({
@@ -23,25 +25,45 @@ import {LoginComponent} from "./login/login.component";
     RegistrationComponent,
     LoginComponent,
     ShowNumberDialogComponent,
-    NgIf,
+    NgIf, ReactiveFormsModule, OverlayPanelModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   providers: [LoginComponent],
 })
 export class HeaderComponent{
-
+  @ViewChild('op', { static: true }) overlay: OverlayPanel;
+  constructor(private _http: HttpClient) {
+  }
+  public logInin(body): Observable<string> {
+    return this._http.post<string>("http://dzitskiy.ru:5000/Auth/Login", body)
+  }
 
   isAuthorization = false;
-
-  logIn() {
-    this.isAuthorization = true;
-  }
+  private _fb = inject(FormBuilder);
 
   public errorName!: RegistrationError;
 
   isVisiblePopup = false;
   isVisiblePopupLogin = false;
+
+  logIn() {
+    this.logInin(this.form.value).pipe(
+      tap((token) => {
+        if(token)
+          localStorage.setItem("Token", token)
+        this.logInin(token);
+        this.isAuthorization = true;
+        return this.isAuthorization
+      })
+    ).subscribe();
+    }
+
+    public form = this._fb.group({
+    login: ["", Validators.required],
+    password: ["", Validators.required],
+  });
+
 
 
   //Модалка регистрация открыть
@@ -51,7 +73,10 @@ export class HeaderComponent{
 
   //Модалка логин открыть
   showVisiblePopupLogin() {
-    this.isVisiblePopupLogin = !this.isVisiblePopupLogin
+    this.isVisiblePopupLogin = true
+  }
+  closePopup() {
+    this.isVisiblePopupLogin = false;
   }
 
   //Закрыть модалку
@@ -61,7 +86,16 @@ export class HeaderComponent{
   closeShowPopupLogin(value: boolean) {
     this.isVisiblePopupLogin = value
   }
-
-  protected readonly authInterceptor = authInterceptor;
-  protected readonly LoginComponent = LoginComponent;
+  onHide() {
+    this.isVisiblePopupLogin = false
+    this.closeShowPopupLogin(this.isVisiblePopupLogin)
+  }
+  logout() {
+    localStorage.removeItem("Token");
+    this.isAuthorization = false;
+    this.action()
+  }
+  action() {
+    this.overlay.hide();
+  }
 }

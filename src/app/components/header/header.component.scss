@@ -101,3 +101,121 @@ header {
 .header-btn-new-post:active {
   background-color: #1E3A8A;
 }
+
+
+//////////////////////////////////////
+
+
+:host::ng-deep .p-dialog-header {
+  padding: 24px 24px 0 24px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 32px;
+  color: #1E293B;
+}
+
+.forms-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+}
+
+
+input{
+  margin-bottom: 16px;
+  width: 368px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  text-indent: 12px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+
+
+}
+.enter-login {
+  margin-top: 25px;
+  margin-left: 145px;
+  width: 127px;
+  height: 48px;
+  background: #3B82F6;
+  border-radius: 4px;
+  border-style: none;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.enter-login:hover {
+  background-color: #1f63dc;
+  border-color: #1f63dc;
+}
+.enter-login:active {
+  background-color: #1E3A8A;
+;
+}
+.help-radio {
+  display: flex;
+  flex-direction: row;
+}
+.forget-password-help {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #3B82F6;
+}
+.forget-password-help:hover {
+  color: #cf3434;
+  cursor: pointer;
+}
+p {
+  margin-top: 3px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1E293B;
+}
+.on-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  height: 108px;
+  width: 147px;
+}
+.on-login-buttons {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1E293B;
+}
+.on-login-buttons:hover {
+  cursor: pointer;
+  color: #3B82F6;
+}
+.on-login-buttons-exit {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color:  #EF4444;
+}
+.on-login-buttons-exit:hover {
+  cursor: pointer;
+  color: #3B82F6;
+}
