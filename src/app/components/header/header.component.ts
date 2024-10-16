@@ -30,16 +30,19 @@ import {LoginComponent} from "./login/login.component";
   providers: [LoginComponent],
 })
 export class HeaderComponent{
-  public isAuthorization = false;
 
-  login() {
-    this.isAuthorization = !this.isAuthorization;
+
+  isAuthorization = false;
+
+  logIn() {
+    this.isAuthorization = true;
   }
 
   public errorName!: RegistrationError;
 
   isVisiblePopup = false;
   isVisiblePopupLogin = false;
+
 
   //Модалка регистрация открыть
   showVisiblePopup() {

@@ -20,6 +20,11 @@
         </svg>
         **Имя**
       </button>
+
+
+
+
+
       <button
           class="header-block-sig-in"
           (click)="showVisiblePopup()"
@@ -47,5 +52,6 @@
 <app-login
   [visible] = "isVisiblePopupLogin"
   (closeShowPopupLogin)="closeShowPopupLogin($event)"
+  [isAuthorization] ="isAuthorization"
 >
 </app-login>

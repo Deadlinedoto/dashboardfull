@@ -41,13 +41,10 @@ export class LoginComponent {
   @Input() visible = false;
   @Output() closeShowPopupLogin = new EventEmitter();
 
-  @Input() isAuthorization = new EventEmitter();
-  @Output() loginIn = false
 
-  public isAuth = false;
+  @Input() isAuthorization = false;
+
   private _fb = inject(FormBuilder);
-  // private _http = inject(HttpClient);
-  checked: boolean = false;
 
   logIn() {
     this.login(this.form.value).pipe(
@@ -55,9 +52,13 @@ export class LoginComponent {
         if(token)
           localStorage.setItem("Token", token)
         this.login(token);
-        this.isAuthorization.emit(this.loginIn);
+        this.isAuthorization = true;
+        return this.isAuthorization
+        // return this.login(token);
       })
     ).subscribe();
+    }
+
 
 
     // this._loginService.login(this.form.value).pipe(
@@ -67,7 +68,6 @@ export class LoginComponent {
     //       this.login()
     //     }
     //   })).subscribe()
-  }
 
   public form = this._fb.group({
     login: ["", Validators.required],
