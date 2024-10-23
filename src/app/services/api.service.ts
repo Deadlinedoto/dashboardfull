@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {AddsRequest} from "../interfaces/adds-request.interface";
 import {Registration} from "../interfaces/registration.interface";
 import {AddInterface} from "../interfaces/add.interface";
+import {UsersInterface} from "../interfaces/users.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,6 @@ export class ApiService {
   getRegistration(): Observable<Registration[]> {
     return this.http.post<Registration[]>("http://dzitskiy.ru:5000/Auth/Register", {})
   }
+
 }
 

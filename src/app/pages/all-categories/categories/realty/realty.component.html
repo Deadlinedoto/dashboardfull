@@ -4,42 +4,13 @@
   </svg>
 </h1>
 <div class="transport-categories">
-  <div class="left-side">
-    <h3 class="auto2">Купить жилье</h3>
-    <ul>
-      <li>Все квартиры</li>
-      <li>Вторичка</li>
-      <li>Новостройки</li>
-      <li>Дома, дачи, коттеджи</li>
-      <li>Комнаты</li>
-    </ul>
-  </div>
-  <div class="mid-side">
-    <h3 class="auto2">Путешествия</h3>
-    <ul>
-      <li>Квартиры</li>
-      <li>Дома, дачи, коттеджи</li>
-      <li>Комнаты и койко-место</li>
-    </ul>
-    <h3 class="auto2">Снять долгосрочно</h3>
-    <ul>
-      <li>Квартиры</li>
-      <li>Дома, дачи, коттеджи</li>
-      <li>Комнаты и койко-место</li>
-    </ul>
-  </div>
-  <div class="right-side">
-    <h3 class="auto2">Коммерческая недвижимость</h3>
-    <ul>
-      <li>Купить</li>
-      <li>Снять</li>
-    </ul>
-    <h3 class="auto2">Другие категории</h3>
-    <ul>
-      <li>Земельные участки</li>
-      <li>Гаражи и машиноместа</li>
-      <li>Зарубежная недвижимость</li>
-    </ul>
-  </div>
-
+  <ul>
+    <li *ngFor="let category of parentCategoryes">
+      <p
+        (click)="showId(category.id)"
+      >
+        {{ category.name }}
+      </p>
+    </li>
+  </ul>
 </div>

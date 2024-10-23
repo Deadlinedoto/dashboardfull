@@ -1,11 +1,21 @@
-import {ChangeDetectionStrategy, Component, inject, model} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, ElementRef, inject, input, model, OnInit, ViewChild} from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
 import {AsyncPipe, CommonModule} from "@angular/common";
 import {CategoryService} from "../../services/category.service";
 import {Button} from "primeng/button";
 import {withNavigationErrorHandler} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {NgxMaskDirective} from "ngx-mask";
+import {InputMaskModule} from "primeng/inputmask";
 
 @Component({
   selector: 'app-create-add',
@@ -17,6 +27,8 @@ import {HttpClient} from "@angular/common/http";
     AsyncPipe,
     CommonModule,
     Button,
+    NgxMaskDirective,
+    InputMaskModule,
   ],
   templateUrl: './create-add.component.html',
   styleUrl: './create-add.component.scss',
@@ -33,34 +45,18 @@ export class CreateAddComponent {
   }
 
 
+
   createForm: FormGroup = new FormGroup({
-    "Name": new FormControl(),
-    "Email": new FormControl(),
-    "Location": new FormControl(),
-    "Cost": new FormControl(),
+    "Name": new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    "Email": new FormControl(null, [Validators.required, Validators.email]),
+    "Location": new FormControl(null, [Validators.required]),
+    "Cost": new FormControl(null, [Validators.required]),
     "Description": new FormControl(),
-    "Phone": new FormControl(),
-    "Images": new FormControl(),
-    "CategoryId": new FormControl(
-    ),
+    "Phone": new FormControl(null, [Validators.required, Validators.minLength(11), Validators.maxLength(16)]),
+    "Images": new FormControl([]),
+    "CategoryId": new FormControl(null, [Validators.required]),
   });
-  // public form: FormGroup = this._fb.group({
-  //   Name: ["", Validators.required],
-  //   Description: [""],
-  //   Email: [""],
-  //   Location: [""],
-  //   Cost: [0],
-  //   Phone: [""],
-  //   Images: [""],
-  //   CategoryId: this._fb.array([
-  //     this._fb.group({
-  //       id: [""],
-  //       parentId: [""],
-  //       name: [""],
-  //     })
-  //   ]),
-  //
-  // })
+
 
   public create() {
     if (this.createForm.invalid) {
@@ -85,18 +81,32 @@ export class CreateAddComponent {
     });
 
   }
-  onSelectedImage(event) {
-    this.selectedFile = <File>event.target.files[0];
-  }
   onUpload() {
     const fd = new FormData();
-    fd.append("image", this.selectedFile, this.selectedFile.name);
+    fd.append("Image", this.selectedFile, this.selectedFile.name);
     this.http.post("http://dzitskiy.ru:5000/Image", fd)
       .subscribe((res) => {
 
     })
   }
 
-  protected readonly FormGroup = FormGroup;
-  protected readonly withNavigationErrorHandler = withNavigationErrorHandler;
+  protected readonly input = input;
+  protected readonly model = model;
 }
+// public form: FormGroup = this._fb.group({
+//   Name: ["", Validators.required],
+//   Description: [""],
+//   Email: [""],
+//   Location: [""],
+//   Cost: [0],
+//   Phone: [""],
+//   Images: [""],
+//   CategoryId: this._fb.array([
+//     this._fb.group({
+//       id: [""],
+//       parentId: [""],
+//       name: [""],
+//     })
+//   ]),
+//
+// })

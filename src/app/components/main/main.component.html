@@ -25,7 +25,12 @@
           </p>
         </button>
         <label class="search-and-enter">
-          <input class="searcher" type="text" placeholder="Поиск по объявлениям">
+          <input
+            class="searcher" type="text"
+            placeholder="Поиск по объявлениям"
+            [(ngModel)]="setSearch"
+          >
+          {{setSearch}}
           <button class="search"
           >Найти
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

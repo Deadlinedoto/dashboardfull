@@ -19,6 +19,7 @@ import {AddInterface} from "../../interfaces/add.interface";
 import {ApiService} from "../../services/api.service";
 import {AllAddsComponent} from "../all-adds/all-adds-component";
 import {ActivatedRoute} from "@angular/router";
+import {CurrencyPipe} from "../../pipes/currency.pipe";
 
 @Component({
   selector: 'app-add',
@@ -29,6 +30,7 @@ import {ActivatedRoute} from "@angular/router";
     CaruselComponent,
     CommonModule,
     ShowNumberDialogComponent,
+    CurrencyPipe
   ],
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss',
@@ -49,7 +51,6 @@ export class AddComponent implements OnInit{
 
     effect(() => {
         if (this.mainImg) {
-          // this.currentImage.set('http://dzitskiy.ru:5000/Images/images');
         }
       },
       {allowSignalWrites: true},

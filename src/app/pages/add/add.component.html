@@ -1,6 +1,6 @@
 <div class="add-page">
   <div class="right-side">
-    <h2 class="price">{{ selectedProducts.cost }}<span>₽</span></h2>
+    <h2 class="price">{{ selectedProducts.cost | currency  }}</h2>
     <button class="give-number"
     (click)="showVisiblePopup()"
     >

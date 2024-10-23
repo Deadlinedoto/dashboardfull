@@ -1,20 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
-import {CategoryInterface} from "../../../../interfaces/category.interface";
-import {CategoryService} from "../../../../services/category.service";
-import {tap} from "rxjs";
+import {Component, inject, OnInit} from '@angular/core';
+import {CategoryService} from "../../services/category.service";
+import {CommonModule, NgForOf} from "@angular/common";
+import {CategoryInterface} from "../../interfaces/category.interface";
+import {HttpClient} from "@angular/common/http";
+import { tap } from 'rxjs';
 
 @Component({
-  selector: 'app-transport',
+  selector: 'app-catgory',
   standalone: true,
   imports: [
-    NgIf,
-    NgForOf
+    NgForOf,
+    CommonModule,
   ],
-  templateUrl: './transport.component.html',
-  styleUrl: './transport.component.scss'
+  templateUrl: './catgory.component.html',
+  styleUrl: './catgory.component.scss'
 })
-export class TransportComponent implements OnInit {
+export class CatgoryComponent implements OnInit {
   categoryes: CategoryInterface[];
   subcategoriesVisible = false;
   parentCategoryes: CategoryInterface[] = [];
@@ -29,7 +30,7 @@ export class TransportComponent implements OnInit {
           console.log(resp)
           this.categoryes = resp;
           resp.map(value => {
-            if(value.parentId === "093abb80-a4e9-48d0-b602-6392c2dfd348"){
+            if(value.parentId === "00000000-0000-0000-0000-000000000000"){
               this.parentCategoryes.push(value)
               console.log(this.parentCategoryes)
             }}
@@ -39,8 +40,4 @@ export class TransportComponent implements OnInit {
     )
       .subscribe()
   }
-  showId(id: string) {
-    console.log(id)
-  }
-
 }

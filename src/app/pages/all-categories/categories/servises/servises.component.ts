@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgIf} from "@angular/common";
+import {CategoryInterface} from "../../../../interfaces/category.interface";
+import {CategoryService} from "../../../../services/category.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-servises',
@@ -10,33 +13,32 @@ import {CommonModule, NgIf} from "@angular/common";
   templateUrl: './servises.component.html',
   styleUrl: './servises.component.scss'
 })
-export class ServisesComponent {
-  isShowCategories1 = true;
-  showCategories1(){
-    this.isShowCategories1 = false;
-  };
-  isShowCategories2 = true;
-  showCategories2(){
-    this.isShowCategories2 = false;
-  };
-  isShowCategories3 = true;
-  showCategories3(){
-    this.isShowCategories3 = false;
-  };
-  isShowCategories4 = true;
-  showCategories4(){
-    this.isShowCategories4 = false;
-  };
-  isShowCategories5 = true;
-  showCategories5(){
-    this.isShowCategories5 = false;
-  };
-  isShowCategories6 = true;
-  showCategories6(){
-    this.isShowCategories6 = false;
-  };
-  isShowCategories7 = true;
-  showCategories7(){
-    this.isShowCategories7 = false;
-  };
+export class ServisesComponent implements OnInit {
+  categoryes: CategoryInterface[];
+  subcategoriesVisible = false;
+  parentCategoryes: CategoryInterface[] = [];
+
+  constructor(private _categoryService: CategoryService) {}
+
+
+  ngOnInit(): void {
+    this._categoryService.getCategories().pipe(
+      tap(
+        (resp => {
+          console.log(resp)
+          this.categoryes = resp;
+          resp.map(value => {
+            if(value.parentId === "52946075-5c48-4edf-95d0-e0c0a207a04c"){
+              this.parentCategoryes.push(value)
+              console.log(this.parentCategoryes)
+            }}
+          )
+        })
+      )
+    )
+      .subscribe()
+  }
+  showId(id: string) {
+    console.log(id)
+  }
 }

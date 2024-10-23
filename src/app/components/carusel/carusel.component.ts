@@ -29,6 +29,5 @@ export class CaruselComponent implements OnInit {
 
   ngOnInit() {
     this.images = this.miniImg.imagesIds.map(value => value)
-    console.log('Ошибка', this.images);
   }
 }

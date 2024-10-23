@@ -6,6 +6,8 @@ import {SettingProfileComponent} from "./pages/setting-profile/setting-profile.c
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {LoginComponent} from "./components/header/login/login.component";
 import {MyAddsComponent} from "./pages/my-adds/my-adds.component";
+import {MyProfileComponent} from "./pages/my-profile/my-profile.component";
+import {CatgoryComponent} from "./pages/catgory/catgory.component";
 
 export const routes: Routes = [
   {
@@ -21,12 +23,16 @@ export const routes: Routes = [
     component: CreateAddComponent
   },
   {
+    path: "my-profile",
+    component: MyProfileComponent
+  },
+  {
     path: "login",
     component: LoginComponent,
   },
   {
     path: "my-add",
-    component: MyAddsComponent
+    component: MyAddsComponent,
   },
   {
     path: "all-categories",
@@ -35,6 +41,10 @@ export const routes: Routes = [
   {
     path: "registration",
     component: RegistrationComponent
+  },
+  {
+    path: "catgory",
+    component: CatgoryComponent
   },
 
 

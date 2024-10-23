@@ -1,10 +1,9 @@
 <div class="name-of-posts">
   <h1>Рекомендации для вас</h1>
 </div>
-<div class="products-list"
->
+<div class="products-list">
   <div
-    *ngFor="let product of products">
+    *ngFor="let product of products$ | async">
     <app-post
       [routerLink] = "['selected-add', product.id]"
       [product]="product"

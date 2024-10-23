@@ -21,12 +21,6 @@ import {ServisesComponent} from "./categories/servises/servises.component";
   styleUrl: './all-categories.component.scss'
 })
 export class AllCategoriesComponent {
-  constructor(
-    private _router: Router,
-
-  ) {
-  }
-  public allCategories() {}
 }
 
 

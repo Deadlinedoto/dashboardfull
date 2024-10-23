@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {CommonModule, CurrencyPipe, DatePipe} from "@angular/common";
+import {CommonModule, DatePipe} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {AddsRequest} from "../../../interfaces/adds-request.interface";
 import {AddInterface} from "../../../interfaces/add.interface";
+import {CurrencyPipe} from "../../../pipes/currency.pipe";
 
 @Component({
   selector: 'app-post',
@@ -10,8 +11,8 @@ import {AddInterface} from "../../../interfaces/add.interface";
   imports: [
     DatePipe,
     RouterLink,
-    CurrencyPipe,
-    CommonModule
+    CommonModule,
+    CurrencyPipe
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'

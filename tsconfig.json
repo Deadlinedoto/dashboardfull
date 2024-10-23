@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "types": ["node"],
     "outDir": "./dist/out-tsc",
     "strict": false,
     "noImplicitOverride": true,

@@ -4,81 +4,13 @@
   </svg>
 </h1>
 <div class="transport-categories">
-  <div class="left-side">
-    <h3 class="auto">Автомобили
-      <img
-        src="../../../../../assets/all-images/all-categoies/far-arrow.svg"
-        >
-      </h3>
-    <h3 class="auto2">Мотоциклы и мототехника</h3>
-    <ul>
-      <li>Вездеходы</li>
-      <li>Картинг</li>
-      <li>Квадроциклы и багги</li>
-      <li>Мопеды и скутеры</li>
-      <li>Мотоциклы</li>
-      <li>Снегоходы</li>
-    </ul>
-  </div>
-  <div class="mid-side">
-    <h3 class="auto2">Грузовики и спецтехника</h3>
-    <ul>
-      <li>Грузовики</li>
-      <li>Сельхозтехника</li>
-      <li>Седельные тягачи</li>
-      <li>Прицепы</li>
-      <li>Экскаваторы</li>
-      <li
-        *ngIf="isShowCategories1"
-        (click)="showCategories1()"
-      >Ещё 11</li>
-      <ng-container
-        *ngIf="!isShowCategories1"
+  <ul>
+    <li *ngFor="let category of parentCategoryes">
+      <p
+      (click)="showId(category.id)"
       >
-        <li>Автобусы</li>
-        <li>Автодома</li>
-        <li>Автокраны</li>
-        <li>Бульдозеры</li>
-        <li>Коммунальная техника</li>
-        <li>Коммерческий транспорт</li>
-        <li>Навесное оборудование</li>
-        <li>Погрузчики</li>
-        <li>Строительная техника</li>
-        <li>Техника для лесозаготовки</li>
-        <li>Другое</li>
-      </ng-container>
-    </ul>
-    <h3 class="auto2">Водный транспорт</h3>
-    <ul>
-      <li>Вёсельные лодки</li>
-      <li>Гидроциклы</li>
-      <li>Катери и яхты</li>
-      <li>Моторные лодки и моторы</li>
-    </ul>
-  </div>
-  <div class="right-side">
-    <h3 class="auto2">Запчасти и аксессуары</h3>
-    <ul>
-      <li>Запчасти</li>
-      <li>Шины, диски и колеса</li>
-      <li>Аудио- и видеотехника</li>
-      <li>Аксессуары</li>
-      <li>Тюнинг</li>
-      <li
-        *ngIf="isShowCategories2"
-        (click)="showCategories2()"
-      >Ещё 7</li>
-      <ng-container
-        *ngIf="!isShowCategories2"
-      >
-        <li>Багажники и фаркопы</li>
-        <li>Инструменты</li>
-        <li>Прицепы</li>
-        <li>Экипировка</li>
-        <li>Масла и автохимия</li>
-        <li>Противоугонные устройства</li>
-        <li>GPS-навигаторы</li>
-      </ng-container>
-    </ul>
-  </div>
+        {{ category.name }}
+      </p>
+    </li>
+  </ul>
 </div>

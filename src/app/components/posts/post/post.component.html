@@ -9,7 +9,7 @@
   src="assets/all-images/main-imgs/main-img4.png">
 
 <p class="name">{{product.name}}</p>
-<p class="price">{{product.cost}}<span>₽</span></p>
+<p class="price">{{product.cost | currency}}</p>
 <p class="address">{{product.location}}</p>
 <p class="date">{{product.createdAt| date: "dd.MM.YYYY, H:mm"}}</p>
 

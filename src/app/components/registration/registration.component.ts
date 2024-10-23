@@ -19,6 +19,7 @@ export class RegistrationComponent {
   @Input() visible = false;
   @Input() error!: RegistrationError
   @Output() closeShowPopup = new EventEmitter();
+
   private _fb = inject(FormBuilder);
   private _http = inject(HttpClient);
 

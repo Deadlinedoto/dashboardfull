@@ -21,19 +21,16 @@
         </svg>
         {{ form.controls.login.value }}
       </button>
-
-
-
-
-
       <button
+        *ngIf="!isAuthorization"
         class="header-block-sig-in"
         (click)="showVisiblePopup()"
       >
         Регистрация
       </button>
-      <button class="header-btn-new-post"
-              routerLink = "create-add"
+      <button
+        class="header-btn-new-post"
+        routerLink = "create-add"
       >
         Новое объявление
         <svg class="plus-svg" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,13 +60,12 @@
         type="text"
         placeholder="Логин"
         formControlName="login"
-        appValidation
       >
       <input
         type="text"
         placeholder="Пароль"
         formControlName="password"
-        appValidation
+
       >
       <div class="card flex justify-content-center gap-8">
         <div class="card flex justify-content-center gap-2">
@@ -102,7 +98,11 @@
       routerLink="my-add"
       (click)="action()"
     >Мои объявления</p>
-    <p class="on-login-buttons">Настройки</p>
+    <p
+      class="on-login-buttons"
+      routerLink = "my-profile"
+      (click)="action()"
+    >Настройки</p>
     <p
       class="on-login-buttons-exit"
       (click)="logout()"

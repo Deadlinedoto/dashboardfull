@@ -17,9 +17,4 @@ import {RouterLink} from "@angular/router";
   styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent {
-  isActive = false;
-
-  onClick() {
-    this.isActive = !this.isActive;
-  }
 }

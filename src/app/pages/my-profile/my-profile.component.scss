@@ -1,0 +1,58 @@
+.my-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+input{
+  margin-top: 16px;
+  width: 368px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  text-indent: 12px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  &.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
+}
+button {
+  margin-top: 12px;
+  margin-left: 60px;
+  width: 244px;
+  height: 48px;
+  background: #3B82F6;
+  border-radius: 4px;
+  border-style: none;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1f63dc;
+  border-color: #1f63dc;
+}
+button:active {
+  background-color: #1E3A8A;
+;
+}
+
+p{
+  color: red;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+
+}

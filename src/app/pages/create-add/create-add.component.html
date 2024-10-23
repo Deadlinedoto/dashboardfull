@@ -5,13 +5,15 @@
   <div class="all-forms-create">
     <div class="new-ad-categories">
       <p>Выберите категорию<span style="color: red">*</span></p>
-      <p-dropdown
-        [options]="categories$ | async"
-        [style]="{'width':'100%', 'height':'100%', 'border':'none'}"
-        formControlName="CategoryId"
-        optionLabel="name"
-        placeholder="Нажмите, чтобы выбрать"
-      />
+      <div class="categories">
+        <p-dropdown
+          [options]="categories$ | async"
+          formControlName="CategoryId"
+          optionLabel="name"
+          placeholder="Нажмите, чтобы выбрать"
+          class="ng-dirty ng-invalid"
+        />
+      </div>
     </div>
     <div>
       <p>Название объявления<span style="color: red">*</span></p>
@@ -60,12 +62,12 @@
         type="text"
         placeholder="Введите контактный номер телефона"
         formControlName="Phone"
-        appValidation
-      >
+        appValidation>
     </div>
     <div
       class="create-add-image"
     >
+
       <p-button
         [style]= "{'width':'200px', 'height': '35px', 'justify-content': 'center', 'gap':'5px', 'margin-left':'16px', 'flex-direction': 'row-reverse'}"
         type="file"
@@ -73,13 +75,17 @@
         icon="pi pi-images"
         appValidation
         (onClick)="onUpload()"
+        (click)="fileInput.click()"
       >
+
         <input
-          type="file"
-          (change)="onSelectedImage($event)">
+          style="display:none;"
+          #fileInput type="file" />
         Добавить картинки
       </p-button>
       <p>Максимум 10 картинок в формате jpeg, png или heic</p>
+    </div>
+    <div class="selected-image-new-add">
     </div>
     <div>
       <p>Цена(₽)<span style="color: red">*</span></p>
@@ -89,7 +95,6 @@
         placeholder="0"
         formControlName="Cost"
         appValidation>
-
     </div>
     <button
       [disabled]="createForm.invalid"

@@ -29,7 +29,6 @@ import {OverlayPanel, OverlayPanelModule} from "primeng/overlaypanel";
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  providers: [LoginComponent],
 })
 export class HeaderComponent{
   @ViewChild('op', { static: true }) overlay: OverlayPanel;
@@ -63,6 +62,7 @@ export class HeaderComponent{
     login: ["", Validators.required],
     password: ["", Validators.required],
   });
+
 
 
 
