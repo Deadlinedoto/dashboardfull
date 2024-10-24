@@ -26,6 +26,12 @@ export class ApiService {
   getRegistration(): Observable<Registration[]> {
     return this.http.post<Registration[]>("http://dzitskiy.ru:5000/Auth/Register", {})
   }
+  getLoadedImg(): Observable<any>{
+    return this.http.post<any>("http://dzitskiy.ru:5000/Images/", {})
+  }
+  getSearch(searchModel: any): Observable<AddsAndSearch[]>{
+    return this.http.post<AddsAndSearch[]>("http://dzitskiy.ru:5000/Advert/search", searchModel)
+  }
 
 }
 

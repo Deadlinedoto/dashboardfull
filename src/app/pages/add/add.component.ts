@@ -61,7 +61,7 @@ export class AddComponent implements OnInit{
       this.idSelectAdd = params['id'];
     })
     this.getSelectAdd(this.idSelectAdd)
-    this.mainImg = this.selectedProducts.imagesIds;
+    // this.mainImg = this.selectedProducts.imagesIds;
   }
   setCurrentImage(image: Image) {
     this.currentImage.set(image);

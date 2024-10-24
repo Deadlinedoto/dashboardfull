@@ -12,10 +12,12 @@ import {DropdownModule} from "primeng/dropdown";
 import {AsyncPipe, CommonModule} from "@angular/common";
 import {CategoryService} from "../../services/category.service";
 import {Button} from "primeng/button";
-import {withNavigationErrorHandler} from "@angular/router";
+import {RouterLink, withNavigationErrorHandler} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {NgxMaskDirective} from "ngx-mask";
 import {InputMaskModule} from "primeng/inputmask";
+import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-create-add',
@@ -29,6 +31,8 @@ import {InputMaskModule} from "primeng/inputmask";
     Button,
     NgxMaskDirective,
     InputMaskModule,
+    ImageCropperComponent,
+    RouterLink,
   ],
   templateUrl: './create-add.component.html',
   styleUrl: './create-add.component.scss',
@@ -37,11 +41,30 @@ import {InputMaskModule} from "primeng/inputmask";
 export class CreateAddComponent {
   private _fb = inject(FormBuilder);
   private _api = inject(CategoryService)
-  selectedFile: File = null;
+  imageChangedEvent: Event | null = null;
+  croppedImage: SafeUrl  = '';
+  image: File;
 
   public categories$ = this._api.getCategories()
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+  }
+
+  fileChangeEvent(event: Event): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(event.objectUrl);
+    // event.blob can be used to upload the cropped image
+  }
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
   }
 
 
@@ -75,20 +98,27 @@ export class CreateAddComponent {
     model.append("Phone", formValue.Phone);
     model.append("CategoryId", formValue.CategoryId.id);
     model.append("Images", formValue.Images);
-
     this._api.createAd(model).subscribe((res) => {
       console.log(res);
     });
 
   }
-  onUpload() {
-    const fd = new FormData();
-    fd.append("Image", this.selectedFile, this.selectedFile.name);
-    this.http.post("http://dzitskiy.ru:5000/Image", fd)
-      .subscribe((res) => {
 
+  upload() {
+    const uploadedFile = this.createForm.get("Images").value;
+    const reader  = new FileReader()
+    reader.onload = () => {
+      const arrayBuffer = reader.result as ArrayBuffer;
+    }
+    const formData = new FormData();
+    formData.append("UploadedFile", uploadedFile);
+
+    this.http.post("http://dzitskiy.ru:5000/Images", formData).subscribe((res) => {
+      console.log(res)
     })
   }
+
+
 
   protected readonly input = input;
   protected readonly model = model;

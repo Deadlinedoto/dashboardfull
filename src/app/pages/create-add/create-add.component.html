@@ -71,13 +71,12 @@
       <p-button
         [style]= "{'width':'200px', 'height': '35px', 'justify-content': 'center', 'gap':'5px', 'margin-left':'16px', 'flex-direction': 'row-reverse'}"
         type="file"
+        (change)="fileChangeEvent($event)"
         formControlName="Images"
         icon="pi pi-images"
         appValidation
-        (onClick)="onUpload()"
         (click)="fileInput.click()"
       >
-
         <input
           style="display:none;"
           #fileInput type="file" />
@@ -85,7 +84,23 @@
       </p-button>
       <p>Максимум 10 картинок в формате jpeg, png или heic</p>
     </div>
-    <div class="selected-image-new-add">
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 4"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded($event)"
+      (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+    <div *ngIf="croppedImage" class="selected-image-new-add">
+      <img [src]="croppedImage" alt="uploaded img"/>
+      <button
+        type="submit"
+        class="uploadImg"
+        (click)="upload()"
+      >Загрузить изображение</button>
     </div>
     <div>
       <p>Цена(₽)<span style="color: red">*</span></p>
