@@ -33,10 +33,12 @@
             class="searcher"
             type="text"
             placeholder="Поиск по объявлениям"
-            formControlName="search"
+            [(ngModel)]="searchService.searchTerm"
+            (ngModelChange)="onSearch($event)"
             appValidation
           >
           <button
+            (click)="search()"
             type="submit"
             class="search"
           >Найти

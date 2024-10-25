@@ -17,9 +17,9 @@ import {CommonModule} from "@angular/common";
 import {ShowNumberDialogComponent} from "./show-number-dialog/show-number-dialog.component";
 import {AddInterface} from "../../interfaces/add.interface";
 import {ApiService} from "../../services/api.service";
-import {AllAddsComponent} from "../all-adds/all-adds-component";
 import {ActivatedRoute} from "@angular/router";
 import {CurrencyPipe} from "../../pipes/currency.pipe";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-add',
@@ -30,7 +30,9 @@ import {CurrencyPipe} from "../../pipes/currency.pipe";
     CaruselComponent,
     CommonModule,
     ShowNumberDialogComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss',

@@ -70,37 +70,26 @@
 
       <p-button
         [style]= "{'width':'200px', 'height': '35px', 'justify-content': 'center', 'gap':'5px', 'margin-left':'16px', 'flex-direction': 'row-reverse'}"
-        type="file"
-        (change)="fileChangeEvent($event)"
         formControlName="Images"
         icon="pi pi-images"
         appValidation
-        (click)="fileInput.click()"
+        (click)="triggerClick()"
       >
         <input
           style="display:none;"
-          #fileInput type="file" />
+          (change)="onFileUpload($event)"
+          #input type="file" />
         Добавить картинки
       </p-button>
       <p>Максимум 10 картинок в формате jpeg, png или heic</p>
     </div>
-    <image-cropper
-      [imageChangedEvent]="imageChangedEvent"
-      [maintainAspectRatio]="true"
-      [aspectRatio]="4 / 4"
-      format="png"
-      (imageCropped)="imageCropped($event)"
-      (imageLoaded)="imageLoaded($event)"
-      (cropperReady)="cropperReady()"
-      (loadImageFailed)="loadImageFailed()"
-    ></image-cropper>
-    <div *ngIf="croppedImage" class="selected-image-new-add">
-      <img [src]="croppedImage" alt="uploaded img"/>
-      <button
-        type="submit"
-        class="uploadImg"
-        (click)="upload()"
-      >Загрузить изображение</button>
+    <div *ngIf="imagePreview" class="selected-image-new-add">
+      <img [src]="imagePreview" alt="uploaded img"/>
+<!--      <button-->
+<!--        type="submit"-->
+<!--        class="uploadImg"-->
+<!--        (click)="upload()"-->
+<!--      >Загрузить изображение</button>-->
     </div>
     <div>
       <p>Цена(₽)<span style="color: red">*</span></p>
@@ -115,5 +104,7 @@
       [disabled]="createForm.invalid"
     >Разместить объявление
     </button>
+    <a
+    >Перейти к созданному объявлению</a>
   </div>
 </form>

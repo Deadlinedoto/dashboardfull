@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, Output} from '@angular/core';
 import {PostComponent} from "../../components/posts/post/post.component";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {DataRowOutlet} from "@angular/cdk/table";
@@ -8,6 +8,7 @@ import {AddsRequest} from "../../interfaces/adds-request.interface";
 import {AddInterface} from "../../interfaces/add.interface";
 import {map, Observable} from "rxjs";
 import {SearchPipe} from "../../pipes/search.pipe";
+import {SearchService} from "../../services/search.service";
 
 @Component({
   selector: 'app-all-adds',
@@ -25,20 +26,16 @@ import {SearchPipe} from "../../pipes/search.pipe";
   styleUrl: './all-adds-component.scss'
 })
 export class AllAddsComponent implements OnInit {
-  // public products: AddsRequest[] = []
   products$: Observable<AddsRequest[]>;
   searchTerm: string = '';
-  constructor(private _api: ApiService) {
+  constructor(private _api: ApiService, private searchService: SearchService) {
   }
 
   ngOnInit() {
-    // this._api.getAllAdds().subscribe((resp) => {
-    //   this.products = resp
-    // })
     this.products$ = this._api.getAllAdds().pipe(
-      map((products) => {
-        return products.filter((product) => product.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      map((products: AddsRequest[]) => {
+        return products.filter((product) => product.name.toLowerCase().includes(this.searchService.searchTerm.toLowerCase()));
       })
-    )
+    );
   }
 }

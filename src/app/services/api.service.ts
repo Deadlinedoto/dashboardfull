@@ -6,6 +6,7 @@ import {AddsRequest} from "../interfaces/adds-request.interface";
 import {Registration} from "../interfaces/registration.interface";
 import {AddInterface} from "../interfaces/add.interface";
 import {UsersInterface} from "../interfaces/users.interface";
+import {IDataUser} from "../interfaces/dataUser.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,9 @@ export class ApiService {
 
   getAllAdds(): Observable<AddsRequest[]>{
     return this.http.post<AddsRequest[]>("http://dzitskiy.ru:5000/Advert/search", {})
+  }
+  getMyAdds(id: string): Observable<IDataUser[]>{
+    return this.http.post<IDataUser[]>("http://dzitskiy.ru:5000/Advert/search" + id, {})
   }
   getApiImg(body: string): Observable<any> {
     return this.http.get("http://dzitskiy.ru:5000/Images/" + body)

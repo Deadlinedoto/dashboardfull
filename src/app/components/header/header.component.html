@@ -3,7 +3,7 @@
     <div class="header-block-buttons">
       <button
         class="header-btn-login"
-        *ngIf="!isAuthorization"
+        *ngIf="!myToken"
         (click)="showVisiblePopupLogin()"
       >
         <svg class="persona-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
         Войти
       </button>
       <button
-        *ngIf="isAuthorization"
+        *ngIf="myToken"
         class="header-btn-login"
         (click)="op.toggle($event)"
       >
@@ -22,7 +22,7 @@
         {{ form.controls.login.value }}
       </button>
       <button
-        *ngIf="!isAuthorization"
+        *ngIf="!myToken"
         class="header-block-sig-in"
         (click)="showVisiblePopup()"
       >

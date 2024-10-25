@@ -12,6 +12,7 @@ import {LoginComponent} from "./login/login.component";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {OverlayPanel, OverlayPanelModule} from "primeng/overlaypanel";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -25,7 +26,7 @@ import {OverlayPanel, OverlayPanelModule} from "primeng/overlaypanel";
     RegistrationComponent,
     LoginComponent,
     ShowNumberDialogComponent,
-    NgIf, ReactiveFormsModule, OverlayPanelModule,
+    NgIf, ReactiveFormsModule, OverlayPanelModule, RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -43,6 +44,8 @@ export class HeaderComponent{
 
   public errorName!: RegistrationError;
 
+  myToken = ""
+
   isVisiblePopup = false;
   isVisiblePopupLogin = false;
 
@@ -53,7 +56,8 @@ export class HeaderComponent{
           localStorage.setItem("Token", token)
         this.logInin(token);
         this.isAuthorization = true;
-        return this.isAuthorization
+        this.myToken = token;
+        return this.myToken
       })
     ).subscribe();
     }

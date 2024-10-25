@@ -13,24 +13,13 @@
 
     </button>
     <li class="my-add-1">
-      <img class="img2" src="assets/all-images/my-adds/main-img2.png" alt="">
-      <p class="my-adds-block-name">Гитара Fender</p>
-      <p class="my-adds-block-price">20 000 ₽</p>
-      <p class="my-adds-block-address">Москва, Ленинский проспект</p>
-      <p class="my-adds-block-date">Сегодня 14:12</p>
+      <div
+        *ngFor="let product of products$ | async">
+        <app-post
+          [routerLink] = "['selected-add', product.id]"
+          [product]="product"
+        ></app-post>
+      </div>
     </li>
-    <li class="my-add-2">
-      <img class="img1" src="assets/all-images/my-adds/main-img1.png" alt="">
-      <p class="my-adds-block-name">Гитара Fender</p>
-      <p class="my-adds-block-price">20 000 ₽</p>
-      <p class="my-adds-block-address">Москва, Ленинский проспект</p>
-      <p class="my-adds-block-date">Сегодня 14:12</p>
-    </li>
-    <li class="my-add-3">
-      <img class="img2" src="assets/all-images/my-adds/main-img2.png" alt="">
-      <p class="my-adds-block-name">Гитара Fender</p>
-      <p class="my-adds-block-price">20 000 ₽</p>
-      <p class="my-adds-block-address">Москва, Ленинский проспект</p>
-      <p class="my-adds-block-date">Сегодня 14:12</p>
-    </li>
+
   </ul>

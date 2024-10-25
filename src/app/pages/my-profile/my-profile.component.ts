@@ -17,7 +17,7 @@ import {Observable} from "rxjs";
     PaginatorModule,
     ReactiveFormsModule,
     NgForOf,
-    NgIf
+    NgIf,
   ],
   templateUrl: './my-profile.component.html',
   styleUrl: './my-profile.component.scss'
@@ -55,7 +55,6 @@ export class MyProfileComponent implements OnInit {
     this.changeProfile(this.userData.id).subscribe(() => {
     });
   }
-
 
 
   get registerNameError() {
